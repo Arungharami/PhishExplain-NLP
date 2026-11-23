@@ -1,0 +1,21 @@
+Received: from out.mailer.example (out.mailer.example [192.0.2.20]) by mx.university.example with ESMTPS id q1; Mon, 2 Nov 2026 14:00:03 +0000
+Authentication-Results: mx.university.example; spf=pass smtp.mailfrom=lab.university.example; dkim=pass header.d=university.example; dmarc=pass header.from=university.example
+From: Research Office <office@university.example>
+To: team@university.example
+Subject: Weekly research meeting notes
+Date: Mon, 2 Nov 2026 14:00:00 +0000
+Message-ID: <notes-44@university.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="ALT"
+
+--ALT
+Content-Type: text/plain; charset=utf-8
+
+Hello team,
+The next meeting is Thursday at 2 PM. Notes are at https://docs.university.example/notes/44.
+See you then.
+--ALT
+Content-Type: text/html; charset=utf-8
+
+<p>Hello team,</p><p>The next meeting is Thursday at 2 PM. <a href="https://docs.university.example/notes/44">Meeting notes</a></p>
+--ALT--

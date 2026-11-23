@@ -1,0 +1,5 @@
+From: Security Training <training@university.example>
+Subject: Recognizing suspicious emails
+
+Reminder from security awareness training: we will never ask you to send your password by email. Do not share the verification code we sent with anyone.
+Phishing emails often say "act now" or "your account will be suspended".
