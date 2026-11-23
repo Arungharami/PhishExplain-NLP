@@ -1,0 +1,489 @@
+{
+  "title": "PhishExplain-NLP synthetic candidate email collection",
+  "version": "0.1.0",
+  "n_examples": 60,
+  "status": "CANDIDATE_ONLY_UNREVIEWED_NOT_GOLD",
+  "note": "AI-assisted synthetic examples using reserved .example domains; must be personally reviewed, potentially rewritten, and annotated before course submission. scenario_family is a design stratum, NOT a gold label. No model results are present.",
+  "examples": [
+    {
+      "id": "PNE-001",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: Access check\nPlease enter your password in the account review form at https://accounts.example/check before your profile can be used again.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-002",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: New security rule\nTo keep your account active, submit your one-time code to the verification page https://verify.example/code.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-003",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: Session reset\nThe service needs you to confirm your login credentials at https://session.example/refresh to restore sign-in.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-004",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: Benefits enrollment\nYour payroll account requires your password to complete the annual enrollment review.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-005",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: Student account update\nEnter your verification code in the form at https://students.example/identity to confirm your registration.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-006",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: Password synchronization\nSend your password to the support representative so your accounts can be synchronized.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-007",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: Cloud workspace\nTo unlock the shared folder, provide your login credentials using https://workspace.example/auth.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-008",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: New access policy\nPlease share your passcode with our verification team to avoid an interrupted session.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-009",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: HR benefits notice\nThe portal prompts you to enter your password to confirm the new benefits selection.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-010",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: Two-factor check\nWe are requesting your one-time code to complete the sign-in validation.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-011",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: Billing account recovery\nReset your password at https://billing.example/recover then reply confirming completion.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-012",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "direct_credential_request",
+      "text": "Subject: Staff directory\nPlease submit your security code in the registration form to finalize your staff profile.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-013",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Immediate schedule change\nAction required: complete the availability form within 2 hours or the appointment slot will expire.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-014",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Delivery hold\nFinal notice. Act now or your package may be returned before midnight.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-015",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Contract deadline\nYou must respond within 24 hours to avoid the request being closed.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-016",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Project access\nUrgent: your workspace access will be paused if you do not review the update.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-017",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Event registration\nThe registration period closes tonight. Complete the form right away to hold a seat.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-018",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Invoice approval\nImmediate action required on the attached invoice or processing will stop.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-019",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Support ticket\nLast warning: please reply today so the service desk can keep your request open.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-020",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Membership renewal\nYour subscription expires today. Act now to continue the service.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-021",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Access confirmation\nYour account will be locked if you ignore this compliance check.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-022",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Shipping reschedule\nTime-sensitive update: confirm the delivery address before midnight.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-023",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Storage allocation\nYour cloud storage will be suspended until the quota request is completed.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-024",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "pressure_no_credential",
+      "text": "Subject: Approval deadline\nPlease respond within 3 days or the request will automatically close.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-025",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Public lecture notes\nThe course lecture notes are published at https://course.example/notes for all participants.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-026",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Meeting agenda\nHere is the agenda file: https://meetings.example/agenda. We can discuss it at the scheduled time.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-027",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Documentation\nThe API documentation is maintained at https://docs.example/api. Let me know about typos.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-028",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Open workshop\nThe workshop description is at https://events.example/workshop and is available to everyone.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-029",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Policy reference\nI found the public policy page at https://policy.example/handbook; it may answer your question.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-030",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Public dataset\nThe publicly accessible example files are listed at https://research.example/data.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-031",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Lab materials\nStudents can read the reference guide at https://lab.example/guide before class.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-032",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Community newsletter\nThis month's archive is published at https://community.example/archive.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-033",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Event slides\nI uploaded the presentation at https://slides.example/talk for anyone who attended.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-034",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Library resource\nThe open-access reading list is available at https://library.example/reading.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-035",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Release notes\nHere are the latest project release notes: https://releases.example/notes.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-036",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "url_only_or_neutral",
+      "text": "Subject: Research announcement\nAn overview of the new study is at https://news.example/research.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-037",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Security tip\nDo not share your password with anyone, including help desk agents. Ask for help through official channels.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-038",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Training quiz\nThe suspicious phrase 'act now' was shown as an example during the cybersecurity seminar.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-039",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Account safety reminder\nNever enter your password on unfamiliar pages; this message is a warning, not a verification request.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-040",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Security awareness\nIf an email says 'immediate action required', confirm with your organization before responding.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-041",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Mock exercise notes\nYesterday we discussed the example 'provide your login credentials'. It is not a legitimate support request.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-042",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Password education\nWe teach students not to share your password with strangers even if the email looks official.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-043",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Scam recognition\nThe phrase 'within 24 hours' can be a manipulation tactic in a fraudulent message.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-044",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Help desk policy\nA support agent will not ask you to enter your password in an emailed form.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-045",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Classroom example\nIn a hypothetical phishing message, the author wrote 'last warning' to create pressure.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-046",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Interview transcript\nThe participant described receiving an email saying 'send your password', but no action was requested here.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-047",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Security bulletin\nAvoid messages that instruct recipients to provide their one-time code; real support staff should not request it.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-048",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "negation_or_quoted_hard_negative",
+      "text": "Subject: Fraud prevention\nThe training slide included a sample URL https://fake-portal.example/demo but told participants not to use it.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-049",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Weekly check-in\nOur project meeting will be on Tuesday at 3 PM. Please bring your notes for discussion.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-050",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Feedback summary\nThank you for reviewing the draft. I have incorporated your comments in the updated document.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-051",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Reading group\nThe next paper for our group covers evaluation metrics in natural language processing.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-052",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Office supplies\nThe new markers and notebooks arrived at the lab this morning. They are in the storage cabinet.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-053",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Research update\nI finished cleaning the text dataset and will discuss the annotation schema at our meeting.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-054",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Team lunch\nWe are planning lunch after the seminar. Let me know your preferred cuisine.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-055",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Class reminder\nTomorrow's lecture covers language modeling and transformer attention mechanisms.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-056",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Proposal review\nThe updated abstract describes the research problem and the evaluation plan.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-057",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: File organization\nI moved the source documents to the shared project folder and reorganized the naming convention.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-058",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Research seminar\nThe speaker will present findings from a recent study of language variation.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-059",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Lab hours\nThe computer laboratory opens at 9 AM and closes at 6 PM on weekdays.",
+      "gold_spans": null
+    },
+    {
+      "id": "PNE-060",
+      "source_type": "AI-assisted synthetic",
+      "review_status": "UNREVIEWED",
+      "scenario_family": "ordinary_no_cue",
+      "text": "Subject: Draft received\nI have received your revised outline and will send comments after reading it.",
+      "gold_spans": null
+    }
+  ]
+}
