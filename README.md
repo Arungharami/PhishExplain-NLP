@@ -1,63 +1,62 @@
-# PhishExplain-NLP
+# PhishExplain-NLP v2 — Explainable phishing-related language extraction
 
-**Evidence-first phishing-language information extraction research portal**
+**Production:** https://phishexplain-nlp.vercel.app
 
-**Live site:** https://phishexplain-nlp.vercel.app
+**Source:** https://github.com/Arungharami/PhishExplain-NLP
 
-**Course:** CAP 6640 Natural Language Processing (Fall 2026), Florida Atlantic University
+**CAP 6640 Natural Language Processing • Fall 2026 • Florida Atlantic University • final due December 4, 2026**
 
-**Researcher:** Arun Kumar Gharami
+The project compares a classical regex/keyword information extractor with a prompted transformer extractor on three observable email-language categories: URL mentions, recipient-directed urgency, and actual requests for credentials. **It is not a phishing classification service.**
 
-**Final deadline:** December 4, 2026
+## Implemented now
 
-## Research question
+- Existing responsive research landing page and browser-only lexical analysis workbench.
+- Nine dedicated routes: /lab/, /dataset/, /annotation/, /evaluation/, /errors/, /research/, /methods/, /course/, /presentation/.
+- Researcher-authenticated Vercel /api/infer endpoint connecting to the OpenAI Chat Completions API when configured; span validation and no public inference access.
+- Same-input live comparison, span highlights, actual JSON export, and disagreement view; transformer success shown only after a real run.
+- Dataset explorer for 60 unreviewed AI-assisted synthetic candidate emails.
+- Browser-local human annotation studio: exact selection offsets, reviewer confirmation, rationale, import/export and draft progress.
+- Frozen 20 calibration / 40 held-out split plan documented in data/split_manifest.json.
+- Evidence import, exact span-and-label scoring, and genuine error-case inspection (blocked until reviewed data and model outputs exist).
+- Transparent CAP 6640 submission audit and research resource pages.
+- Shared metric module, unit tests and automated GitHub verification.
 
-How do transparent lexical rules and prompted transformer language models compare when extracting URL mentions, urgency/pressure language, and direct credential requests from email texts?
+## Not completed / non-automatable
 
-This is an **information extraction** experiment, NOT a production phishing detector. A visible URL is not necessarily malicious.
+- **Real transformer inference has not run**: no OPENAI_API_KEY or researcher access secret is configured in Vercel.
+- **Human gold labels are not complete**: author must personally read/approve annotations for at least 30 examples, preferably all 60.
+- No verified two-method benchmark metric, statistical comparison, or authored six-error analysis exists yet.
+- Final executive memo PDF (5–10 pages) and completed evidence XLSX require actual results and author reflection.
+- Confirm a changed topic with the instructor if necessary.
 
-## Honest implementation status
+## Running locally
 
-| Capability | Status |
-| --- | --- |
-| Responsive portal, synthetic example workbench | Implemented |
-| Browser-only rules and regex engine with exact source offsets | Implemented |
-| JSON inspector / export | Implemented |
-| Research protocol, evidence CSV template and annotation guide | Implemented |
-| Browser baseline tests | Implemented |
-| Transformer inference and saved predictions | Pending |
-| Human-reviewed gold labels and held-out F1 scores | Pending |
-| Final PDF memo and completed evidence workbook | Pending |
-
-## Local use
-
-ES modules require a local HTTP server rather than file:// URLs.
+Use a static HTTP server rather than file:// to load browser ES modules:
 
     python3 -m http.server 4173
 
-Open http://localhost:4173.
+Then open http://localhost:4173. A standalone Python static server does not implement /api/infer; use Vercel development tooling for the server function.
 
-Run Node.js 20+ tests:
+Node 20+:
 
     npm test
+    npm run check
 
-## Files
+## Research and configuration
 
-- index.html: main site and academic presentation
-- styles.css: responsive visual design system
-- app.js: browser interactions
-- engine.js: local rule-based extractor
-- tests/engine.test.mjs: deterministic baseline tests
-- evidence-template.csv: one-row-per-example course evidence template
-- docs/EXPERIMENT_PROTOCOL.md: study design and metrics
-- docs/ANNOTATION_GUIDE.md: annotation definitions and hard negatives
-- docs/LLM_PROMPT.md: proposed transformer prompt, not executed
-- docs/MEMO_OUTLINE.md: executive memo structure
+- docs/EXPERIMENT_PROTOCOL.md
+- docs/ANNOTATION_GUIDE.md
+- docs/DATASET_CARD.md
+- docs/LLM_PROMPT.md
+- docs/LLM_SETUP.md
+- docs/REPRODUCIBILITY.md
+- docs/SUBMISSION_CHECKLIST.md
+- data/split_manifest.json
 
-## Research ethics
+Read docs/LLM_SETUP.md for setting the protected Vercel environment. API secrets must never be put in client code or committed.
 
-Use only public or synthetic emails and redact any private content. Do not submit real credentials, account messages, or personal data. User text stays within the browser in the current workbench. External fonts may be requested, but pasted text is not transmitted.
+## Academic integrity
 
-The author must personally review at least 30 gold-labeled examples and explain three genuine errors per approach. Reproduce all reported numbers using frozen data and outputs; do not infer transformer performance from the demo. Disclose AI-assisted programming and writing in the required first-person reflection.
+The corpus is synthetic/AI-assisted, not independently labeled. Scenario families are challenge-set design metadata, NOT human gold annotations. The author must personally verify gold text spans, record model identities and prompts, score frozen held-out results, explain six actual errors, verify academic sources, and write the half-page first-person reflection. Never substitute the website for the graded memo and spreadsheet.
 
-Independent coursework; no institutional or security authority endorsement is implied.
+No FAU or outside security authority endorsement is claimed.

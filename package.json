@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Evidence-first phishing language information extraction workbench",
   "scripts": {
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check platform.js && node --check lib/spans.js && node --check api/infer.js"
   }
 }

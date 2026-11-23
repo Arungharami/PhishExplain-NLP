@@ -18,6 +18,12 @@ jobs:
           persist-credentials: false
       - name: Verify Node runtime
         run: node --version
+      - name: Validate application module syntax
+        run: |
+          node --check platform.js
+          node --check lib/spans.js
+          node --check api/infer.js
+          node --check scripts/evaluate.mjs
       - name: Run extractor tests
         run: npm test
       - name: Validate static site file references
@@ -28,4 +34,8 @@ jobs:
           test -s styles.css
           test -s evidence-template.csv
           test -s data/candidate_emails.json
+          test -s platform.js
+          test -s platform.css
+          test -s data/split_manifest.json
+          for route in lab dataset annotation evaluation errors research methods course presentation; do test -s "$route/index.html"; done
           node --input-type=module -e 'import fs from "node:fs"; const x=JSON.parse(fs.readFileSync("data/candidate_emails.json","utf8")); if(x.examples.length!==60||x.examples.some(e=>e.review_status!=="UNREVIEWED"))process.exit(1);'

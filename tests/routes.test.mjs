@@ -1,0 +1,6 @@
+import test from "node:test";import assert from "node:assert/strict";import {readFileSync} from "node:fs";
+const names=["lab","dataset","annotation","evaluation","errors","research","methods","course","presentation"];
+test("all routes exist with module and accessible main region",()=>{for(const n of names){const t=readFileSync(n+"/index.html","utf8");assert.match(t,/id="page-app"/);assert.match(t,/src="\/platform.js"/);assert.match(t,/<main/)}})
+test("split protocol is frozen and balanced",()=>{const x=JSON.parse(readFileSync("data/split_manifest.json","utf8"));assert.equal(x.calibration.length,20);assert.equal(x.test.length,40);assert.equal(new Set([...x.calibration,...x.test]).size,60);for(const c of Object.values(x.group_counts)){assert.deepEqual(c,{calibration:4,test:8})}});
+test("synthetic candidates never present as reviewed gold",()=>{const x=JSON.parse(readFileSync("data/candidate_emails.json","utf8"));assert.equal(x.examples.length,60);assert.ok(x.examples.every(e=>e.review_status==="UNREVIEWED"&&e.gold_spans===null))});
+test("research portal does not embed server API key",()=>{for(const n of ["platform.js","index.html"]){const t=readFileSync(n,"utf8");assert.doesNotMatch(t,/sk-[a-zA-Z0-9]{20,}/)}})

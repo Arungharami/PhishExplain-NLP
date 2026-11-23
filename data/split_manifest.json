@@ -1,0 +1,94 @@
+{
+  "version": "split-v1",
+  "corpus_version": "0.1.0",
+  "source": "data/candidate_emails.json",
+  "rule": "numeric example ID modulo 3 equals 1 -> calibration; otherwise -> held-out test",
+  "seed": null,
+  "calibration": [
+    "PNE-001",
+    "PNE-004",
+    "PNE-007",
+    "PNE-010",
+    "PNE-013",
+    "PNE-016",
+    "PNE-019",
+    "PNE-022",
+    "PNE-025",
+    "PNE-028",
+    "PNE-031",
+    "PNE-034",
+    "PNE-037",
+    "PNE-040",
+    "PNE-043",
+    "PNE-046",
+    "PNE-049",
+    "PNE-052",
+    "PNE-055",
+    "PNE-058"
+  ],
+  "test": [
+    "PNE-002",
+    "PNE-003",
+    "PNE-005",
+    "PNE-006",
+    "PNE-008",
+    "PNE-009",
+    "PNE-011",
+    "PNE-012",
+    "PNE-014",
+    "PNE-015",
+    "PNE-017",
+    "PNE-018",
+    "PNE-020",
+    "PNE-021",
+    "PNE-023",
+    "PNE-024",
+    "PNE-026",
+    "PNE-027",
+    "PNE-029",
+    "PNE-030",
+    "PNE-032",
+    "PNE-033",
+    "PNE-035",
+    "PNE-036",
+    "PNE-038",
+    "PNE-039",
+    "PNE-041",
+    "PNE-042",
+    "PNE-044",
+    "PNE-045",
+    "PNE-047",
+    "PNE-048",
+    "PNE-050",
+    "PNE-051",
+    "PNE-053",
+    "PNE-054",
+    "PNE-056",
+    "PNE-057",
+    "PNE-059",
+    "PNE-060"
+  ],
+  "group_counts": {
+    "direct_credential_request": {
+      "calibration": 4,
+      "test": 8
+    },
+    "pressure_no_credential": {
+      "calibration": 4,
+      "test": 8
+    },
+    "url_only_or_neutral": {
+      "calibration": 4,
+      "test": 8
+    },
+    "negation_or_quoted_hard_negative": {
+      "calibration": 4,
+      "test": 8
+    },
+    "ordinary_no_cue": {
+      "calibration": 4,
+      "test": 8
+    }
+  },
+  "notice": "Split declared before any human gold annotations or model evaluation. Do not tune either method on held-out test examples."
+}

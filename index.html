@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/platform.css" />
   <script type="module" src="/app.js"></script>
 </head>
 <body>
@@ -24,11 +25,11 @@
         <span class="brand-name">PhishExplain<span class="brand-suffix">.NLP</span></span>
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#overview">Overview</a><a href="#lab">Live lab</a><a href="#methods">Methodology</a><a href="#evidence">Evidence</a><a href="#research">Research</a>
+        <a href="#overview">Overview</a><a href="/lab/">Live lab</a><a href="/dataset/">Dataset</a><a href="/annotation/">Gold labels</a><a href="/evaluation/">Evaluation</a><a href="/course/">Submission</a>
       </nav>
       <div class="nav-actions"><span class="nav-status"><span class="status-dot"></span>Research prototype</span><a class="nav-github" href="https://github.com/Arungharami/PhishExplain-NLP" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><button class="menu-button" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">☰</button></div>
     </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#overview">Overview</a><a href="#lab">Live lab</a><a href="#methods">Methodology</a><a href="#evidence">Evidence</a><a href="#research">Research</a></nav>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#overview">Overview</a><a href="/lab/">Live lab</a><a href="/dataset/">Dataset</a><a href="/annotation/">Gold labels</a><a href="/evaluation/">Evaluation</a><a href="/course/">Submission</a></nav>
   </header>
   <main id="top">
     <section class="hero section container" id="overview">
@@ -36,7 +37,7 @@
         <div class="eyebrow"><span class="eyebrow-line"></span> CAP 6640 • NATURAL LANGUAGE PROCESSING <span class="eyebrow-sep">/</span> FALL 2026</div>
         <h1>Read between<br />the <span class="gradient-word">warning signs.</span></h1>
         <p class="hero-lead">Every suspicious email leaves a language trail. Explore how interpretable rules and transformer-based NLP can extract phishing cues—and where each approach can fail.</p>
-        <div class="hero-ctas"><a class="button button-primary" href="#lab">Launch analysis lab <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#methods">Explore the study <span aria-hidden="true">→</span></a></div>
+        <div class="hero-ctas"><a class="button button-primary" href="/lab/">Launch analysis lab <span aria-hidden="true">↗</span></a><a class="button button-outline" href="/methods/">Explore the study <span aria-hidden="true">→</span></a></div>
         <div class="hero-context"><div class="context-icon" aria-hidden="true">◈</div><span>Independent student research <span class="muted-divider">·</span> Florida Atlantic University</span></div>
       </div>
       <div class="hero-visual">
@@ -58,6 +59,7 @@
         <div class="signal-float float-bottom"><span class="float-check">✓</span><div><strong>Evidence-first analysis</strong><small>Observable spans, not guesses</small></div></div>
       </div>
     </section>
+    <section class="container work-card" aria-label="Research workspaces" style="margin-top:20px;margin-bottom:0"><div class="work-spread"><div><span class="section-kicker">NEW RESEARCH PLATFORM</span><h2 style="font:800 24px Manrope,system-ui;margin:8px 0">Open the academic workspaces</h2><p class="work-muted">The evidence lab, gold labeling workflow, and grade-focused submission audit are now separate interactive pages.</p></div><div class="work-row"><a class="work-button outline" href="/lab/">Live experiment ↗</a><a class="work-button outline" href="/annotation/">Annotate 60 emails ↗</a><a class="work-button outline" href="/course/">Check submission ↗</a></div></div></section>
     <section class="container stats-strip" aria-label="Project at a glance">
       <div><span class="stat-number">03</span><span class="stat-label">Target signal families</span></div>
       <div><span class="stat-number">02</span><span class="stat-label">Planned approaches</span></div>
