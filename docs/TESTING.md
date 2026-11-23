@@ -6,6 +6,12 @@ npm run test:e2e   # browser integration tests (installed Chrome or Edge via pla
 npm run check      # syntax + generated pages + vendored libraries are up to date
 ```
 
+To run the browser suite against a deployment instead of the local server:
+
+```bash
+SHIELD_BASE_URL=https://phishexplain-nlp.vercel.app npm run test:e2e
+```
+
 `test:e2e` needs Google Chrome or Microsoft Edge installed. Choose with `PLAYWRIGHT_CHANNEL=chrome|msedge`. If neither is found the tests are skipped, not passed silently: the runner reports them as skipped.
 
 ## Suites

@@ -1,6 +1,7 @@
 // Browser integration tests. Run: npm run test:e2e
 // Uses playwright-core with an installed Chrome or Edge (set PLAYWRIGHT_CHANNEL=chrome|msedge to choose).
 // The dev server applies vercel.json headers, so the production Content-Security-Policy is enforced.
+// Set SHIELD_BASE_URL=https://phishexplain-nlp.vercel.app to run the same suite against a deployment.
 import test, { before, after } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -9,7 +10,9 @@ import { startServer } from "../../scripts/serve.mjs";
 import { validateReport } from "../../shield/core/analyze.js";
 
 const PORT = 4190;
-const BASE = `http://127.0.0.1:${PORT}`;
+const REMOTE = process.env.SHIELD_BASE_URL ? process.env.SHIELD_BASE_URL.replace(/\/$/, "") : null;
+const BASE = REMOTE || `http://127.0.0.1:${PORT}`;
+const HOST = new URL(BASE).hostname;
 let server, browser;
 
 async function launch() {
@@ -18,7 +21,7 @@ async function launch() {
   return null;
 }
 
-before(async () => { server = await startServer(PORT); browser = await launch(); });
+before(async () => { if (!REMOTE) server = await startServer(PORT); browser = await launch(); });
 after(async () => { await browser?.close(); server?.close(); });
 
 /** New page that fails the test on console errors, CSP violations, dialogs or off-origin requests. */
@@ -30,11 +33,10 @@ async function openPage(t, path, { viewport } = {}) {
   page.on("console", m => { if (m.type() === "error") problems.push("console: " + m.text()); });
   page.on("pageerror", e => problems.push("pageerror: " + e.message));
   page.on("dialog", d => { if (page.acceptDialogs) return d.accept(); problems.push("dialog: " + d.message()); return d.dismiss(); });
-  page.on("request", r => { const u = new URL(r.url()); if (!["127.0.0.1", ""].includes(u.hostname) && !u.protocol.startsWith("blob") && !u.protocol.startsWith("data")) problems.push("off-origin request: " + r.url()); });
+  page.on("request", r => { const u = new URL(r.url()); if (![HOST, ""].includes(u.hostname) && !u.protocol.startsWith("blob") && !u.protocol.startsWith("data")) problems.push("off-origin request: " + r.url()); });
   page.problems = problems;
   page.ctx = ctx;
   await page.goto(BASE + path);
-  await waitReady(page);
   await waitReady(page);
   return page;
 }

@@ -76,6 +76,18 @@ What a valid evaluation needs:
 4. **Evaluation:** obtain a permissioned benchmark (above).
 5. **Independent review:** a security review/penetration test and an accessibility audit (contrast and screen readers).
 
-## Deployment
+## Deployment (verified 2026-11-23)
 
-_Filled in after the production deployment is verified._
+- **Commit:** `94d6f55` on `main` (product code). Later commits change docs and test tooling only.
+- **GitHub Actions** run 45282253412: success. The log shows 74/74 Node tests and 10/10 Chrome tests, 0 skipped, `npm audit` with 0 vulnerabilities, and generated pages and vendored libraries current.
+- **Vercel** commit status: `success` ("Deployment has completed"), existing project `phishexplain-nlp`. No new project was created.
+- **Production smoke test** (https://phishexplain-nlp.vercel.app):
+  - All 18 page routes, the Shield and vendor assets, and the research assets return 200.
+  - `/tests/…`, `/.env` and the removed `/security-engine.js` return 404.
+  - `GET /api/reputation` and `GET /api/ai-analysis` return `available:false` and expose no secrets.
+  - `POST /api/reputation` returns 503 "Reputation lookup unavailable".
+  - `/api/infer` (research) still returns 200.
+  - Strict CSP, `X-Frame-Options: DENY`, `Permissions-Policy`, COOP, `nosniff` and `Referrer-Policy` are served on `/security/`. The relaxed research CSP is served on `/lab/`.
+- **Browser suite against production** (`SHIELD_BASE_URL=https://phishexplain-nlp.vercel.app npm run test:e2e`): **10/10 passed**, with no console errors, CSP violations or off-origin requests.
+
+Operational status: the **local scanner is operational in production**. Reputation lookup and AI analysis are deployed but **not configured**, so they are not operational.
