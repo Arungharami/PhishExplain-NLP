@@ -1,0 +1,2 @@
+import test from "node:test";import assert from "node:assert/strict";import {spawnSync} from "node:child_process";import {writeFileSync,unlinkSync,readFileSync} from "node:fs";
+test("evaluator refuses unreviewed original candidates",()=>{const data=JSON.parse(readFileSync("data/candidate_emails.json","utf8"));const file=".tmp-eval-refusal.json";try{writeFileSync(file,JSON.stringify(data));const r=spawnSync(process.execPath,["scripts/evaluate.mjs",file],{encoding:"utf8"});assert.notEqual(r.status,0);assert.match(r.stderr,/Evaluation refused/)}finally{unlinkSync(file)}});
