@@ -1,0 +1,4 @@
+# Generated pages and vendored libraries are compared byte-for-byte in CI; keep LF everywhere.
+* text=auto eol=lf
+*.png binary
+*.svg text eol=lf
