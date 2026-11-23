@@ -87,11 +87,47 @@ async function loadEvaluation(file){
  return data;
 }
 function evaluationPage(){
- view.innerHTML='<div class="work-alert">Only a genuine, human-reviewed frozen test set can establish model performance. The 60 synthetic candidates have no automatic gold labels. Import a completed evidence file to calculate actual metrics.</div><div class="work-card"><h2>Import frozen evaluation evidence</h2><p>Use the annotation studio export as a starting point, then add documented, actually executed transformer_spans to the same held-out examples. A full benchmark requires all 40 test examples to be human reviewed and both methods to have predictions.</p><label for="eval-file" class="work-button outline">Choose evaluation JSON</label><input id="eval-file" type="file" hidden accept=".json,application/json"><div id="notice"></div></div><div id="eval-results" class="work-empty">No reviewed frozen evaluation data loaded. Measured precision, recall and F1 are unavailable.</div>';
- $("#eval-file").addEventListener("change",async event=>{const file=event.target.files?.[0];if(!file)return;try{
-  const data=await loadEvaluation(file),rows=data.examples.filter(x=>x.split==="test");if(rows.length!==40||rows.some(x=>x.review_status!=="REVIEWED"))throw Error("All 40 held-out test examples must be independently reviewed before the full comparison");if(rows.some(x=>!Array.isArray(x.transformer_spans)))throw Error("Real transformer predictions are missing for some held-out examples; no comparative score can be claimed");
-  if(rows.some(x=>!Array.isArray(x.baseline_spans)))throw Error("Missing baseline predictions");const a=scoreExamples(rows,"baseline_spans"),b=scoreExamples(rows,"transformer_spans"),card=h("div","work-card");card.append(h("h2","","Measured results from imported reviewed data"));const top=h("div","work-grid");for(const [name,r] of [["Classical rules",a],["Prompted transformer",b]]){const k=h("div","work-stat");k.append(h("strong","",r.micro.f1.toFixed(3)),h("span","",name+" · exact-span micro-F1"));top.append(k)}card.append(top);const pre=h("pre","work-result",formatJSON({metric:"exact_label_and_UTF16_offset",n_test:40,baseline:a,transformer:b,interpretation:"Only the uploaded source can substantiate this result; independently verify model metadata and gold provenance"}));card.append(pre);$("#eval-results").replaceWith(card);setNotice("Computed on all 40 imported reviewed test examples.","ok");
- }catch(err){setNotice("Evaluation blocked: "+err.message,"error")}})
+ view.innerHTML='<div class="work-alert">Only a genuine, human-reviewed frozen test set can establish model performance. The 60 synthetic candidates have no automatic gold labels. The researcher-only batch runner uses a paid model API only when explicitly authorized.</div><div class="work-card"><h2>Step 1 · Import reviewed annotation bundle</h2><p>Export the bundle from the annotation studio after independently reviewing all 40 held-out test examples. Calibration examples must not be used for the final comparison.</p><label for="eval-file" class="work-button outline">Import annotation/evaluation JSON</label><input id="eval-file" type="file" hidden accept=".json,application/json"><div id="eval-loaded" class="work-muted">No evidence imported.</div><div id="notice"></div></div><div class="work-card"><h2>Step 2 · Run actual transformer inference over the held-out set</h2><p>Only after the gold annotations have been frozen: the browser sends each of the same 40 test texts to the researcher-authorized API one at a time. The model must return exact grounded spans. A run is incomplete if a call fails.</p><label class="work-field">Researcher access key (in memory only; never exported)<input id="eval-research-key" type="password" autocomplete="off" class="work-input" placeholder="Enter private researcher key"></label><div class="work-row"><button id="eval-batch" class="work-button" disabled>Run transformer on 40 test emails</button><button id="eval-export" class="work-button outline" disabled>Download actual benchmark JSON</button></div><p id="eval-batch-status" class="work-muted">Import fully reviewed gold labels to enable batch inference.</p><div class="work-progress"><span id="eval-batch-progress" style="width:0"></span></div></div><div id="eval-results" class="work-empty">No complete reviewed, paired evaluation data loaded. Measured precision, recall and F1 are not yet available.</div>';
+ let active=null;
+ const testRows=data=>{
+  const test=data.examples.filter(x=>x.split==="test");
+  if(test.length!==40||test.some(x=>x.review_status!=="REVIEWED"||typeof x.reviewer!=="string"||!x.reviewer.trim()||!Array.isArray(x.gold_spans)))throw Error("All 40 held-out examples need independently reviewed, researcher-signed gold annotations");
+  for(const row of test){validateSpans(row.text,row.gold_spans);const actual=extractSignals(row.text).categories.flatMap(c=>c.matches);if(!Array.isArray(row.baseline_spans))row.baseline_spans=actual;validateSpans(row.text,row.baseline_spans);
+    const key=x=>x.category+":"+x.start+":"+x.end;
+    if(row.baseline_spans.map(key).sort().join("|")!==actual.map(key).sort().join("|"))throw Error("Baseline mismatch: "+row.id)}
+  return test
+ };
+ const score=data=>{
+  const rows=testRows(data);if(rows.some(x=>!Array.isArray(x.transformer_spans))||!data.transformer_run){$("#eval-results").className="work-empty";$("#eval-results").textContent="Gold review verified for import, but real transformer responses are still missing. No comparative metrics can be shown.";return false}
+  const a=scoreExamples(rows,"baseline_spans"),b=scoreExamples(rows,"transformer_spans");const card=h("div","work-card");card.append(h("h2","","Verified calculations from supplied human gold and executed outputs"));const top=h("div","work-grid");for(const [name,result] of [["Classical baseline",a],["Transformer",b]]){const k=h("div","work-stat");k.append(h("strong","",result.micro.f1.toFixed(3)),h("span","",name+" · exact-span micro-F1"));top.append(k)}card.append(top);card.append(h("pre","work-result",formatJSON({test_examples:40,metric:"exact_span_and_label",baseline:a,transformer:b,transformer_run:data.transformer_run})));$("#eval-results").replaceWith(card);return true
+ };
+ $("#eval-file").addEventListener("change",async event=>{const file=event.target.files?.[0];if(!file)return;try{active=await loadEvaluation(file);const rows=testRows(active);$("#eval-loaded").textContent="Imported "+active.examples.length+" unchanged candidate texts; "+rows.length+" reviewed held-out examples are ready.";$("#eval-batch").disabled=false;const completed=score(active);$("#eval-export").disabled=!completed;$("#eval-batch-status").textContent=completed?"Actual paired predictions already included; export or run new independent experiment.":"Ready for authenticated transformer batch execution.";setNotice("Human-reviewed split and baseline predictions validated.","ok")}catch(err){active=null;$("#eval-batch").disabled=true;$("#eval-export").disabled=true;setNotice("Import blocked: "+err.message,"error")}});
+ $("#eval-export").addEventListener("click",()=>{if(active?.transformer_run)download(active,"phishexplain-frozen-evaluation.json")});
+ $("#eval-batch").addEventListener("click",async ()=>{
+  if(!active)return;
+  const secret=$("#eval-research-key").value;if(!secret){setNotice("Researcher key required. This is never included in exported evidence.","error");return}
+  if(!confirm("This will execute up to 40 actual model API requests and may incur provider charges. Continue?"))return;
+  let rows;try{rows=testRows(active)}catch(err){setNotice(err.message,"error");return}
+  $("#eval-batch").disabled=true;$("#eval-export").disabled=true;$("#eval-batch-status").textContent="Starting actual model inference…";$("#eval-batch-progress").style.width="0%";
+  const run={model:null,prompt_version:null,executed_at:new Date().toISOString(),run_type:"researcher_authorized_api",completed:0};
+  try{
+   for(const [i,row] of rows.entries()){
+    $("#eval-batch-status").textContent="Running actual transformer: "+(i+1)+" / 40 (example "+row.id+")";
+    const response=await fetch("/api/infer",{method:"POST",headers:{"Content-Type":"application/json","x-research-key":secret},body:JSON.stringify({text:row.text})});
+    let payload;try{payload=await response.json()}catch{throw Error("Non-JSON inference response for "+row.id)}
+    if(!response.ok)throw Error(row.id+": "+(payload.error||"Inference request failed"));
+    const verified=validateSpans(row.text,payload.spans);
+    if(payload.status!=="executed"||!payload.model||!payload.prompt_version)throw Error("Invalid executed model metadata for "+row.id);
+    if(run.model&&run.model!==payload.model)throw Error("Model changed during the benchmark");
+    if(run.prompt_version&&run.prompt_version!==payload.prompt_version)throw Error("Prompt changed during the benchmark");
+    run.model=payload.model;run.prompt_version=payload.prompt_version;row.transformer_spans=verified;
+    run.completed++;$("#eval-batch-progress").style.width=(100*run.completed/40)+"%";
+   }
+   active.transformer_run=run;$("#eval-research-key").value="";const done=score(active);$("#eval-export").disabled=!done;$("#eval-batch-status").textContent="40/40 genuine model responses validated. Download the evidence bundle and run the CLI evaluator.";setNotice("Paired test outputs completed. Keep this file and the provider's run records for reproducibility.","ok")
+  }catch(err){
+   delete active.transformer_run;$("#eval-batch-status").textContent="Stopped after "+run.completed+" / 40. The run is incomplete; no final comparison is reported.";setNotice(err.message,"error");
+  }finally{$("#eval-research-key").value="";$("#eval-batch").disabled=false}
+ });
 }
 function errorsPage(){
  view.innerHTML='<div class="work-alert">Only real prediction-versus-human-gold disagreements count as course errors. This explorer never generates fictional failure cases.</div><div class="work-card"><h2>Import reviewed evaluation JSON</h2><label class="work-button outline" for="errors-file">Choose actual evaluation file</label><input type="file" id="errors-file" accept=".json,application/json" hidden><div id="notice"></div></div><div id="error-results" class="work-empty">No verified error records loaded. Three authentic errors per approach are required for the course memo.</div>';
