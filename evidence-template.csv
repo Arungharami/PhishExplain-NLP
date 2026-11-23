@@ -1,3 +1,121 @@
-example_id,source_type,source_reference,text,gold_url_spans,gold_urgency_spans,gold_credential_spans,reviewed_by,review_status,baseline_output,transformer_output,baseline_tp,baseline_fp,baseline_fn,transformer_tp,transformer_fp,transformer_fn,error_notes,prompt_version,model_settings
-PNE-001,synthetic,author_created,,,,,,UNREVIEWED,,,,,,,,,,
-PNE-002,synthetic,author_created,,,,,,UNREVIEWED,,,,,,,,,,
+example_id,source_type,scenario_family,source_reference,text,gold_url_spans,gold_urgency_spans,gold_credential_spans,reviewed_by,review_status,baseline_output,transformer_output,baseline_tp,baseline_fp,baseline_fn,transformer_tp,transformer_fp,transformer_fn,error_notes,prompt_version,model_settings
+"PNE-001","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: Access check
+Please enter your password in the account review form at https://accounts.example/check before your profile can be used again.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-002","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: New security rule
+To keep your account active, submit your one-time code to the verification page https://verify.example/code.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-003","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: Session reset
+The service needs you to confirm your login credentials at https://session.example/refresh to restore sign-in.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-004","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: Benefits enrollment
+Your payroll account requires your password to complete the annual enrollment review.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-005","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: Student account update
+Enter your verification code in the form at https://students.example/identity to confirm your registration.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-006","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: Password synchronization
+Send your password to the support representative so your accounts can be synchronized.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-007","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: Cloud workspace
+To unlock the shared folder, provide your login credentials using https://workspace.example/auth.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-008","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: New access policy
+Please share your passcode with our verification team to avoid an interrupted session.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-009","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: HR benefits notice
+The portal prompts you to enter your password to confirm the new benefits selection.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-010","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: Two-factor check
+We are requesting your one-time code to complete the sign-in validation.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-011","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: Billing account recovery
+Reset your password at https://billing.example/recover then reply confirming completion.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-012","AI-assisted synthetic","direct_credential_request","data/candidate_emails.json","Subject: Staff directory
+Please submit your security code in the registration form to finalize your staff profile.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-013","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Immediate schedule change
+Action required: complete the availability form within 2 hours or the appointment slot will expire.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-014","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Delivery hold
+Final notice. Act now or your package may be returned before midnight.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-015","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Contract deadline
+You must respond within 24 hours to avoid the request being closed.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-016","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Project access
+Urgent: your workspace access will be paused if you do not review the update.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-017","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Event registration
+The registration period closes tonight. Complete the form right away to hold a seat.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-018","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Invoice approval
+Immediate action required on the attached invoice or processing will stop.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-019","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Support ticket
+Last warning: please reply today so the service desk can keep your request open.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-020","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Membership renewal
+Your subscription expires today. Act now to continue the service.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-021","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Access confirmation
+Your account will be locked if you ignore this compliance check.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-022","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Shipping reschedule
+Time-sensitive update: confirm the delivery address before midnight.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-023","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Storage allocation
+Your cloud storage will be suspended until the quota request is completed.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-024","AI-assisted synthetic","pressure_no_credential","data/candidate_emails.json","Subject: Approval deadline
+Please respond within 3 days or the request will automatically close.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-025","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Public lecture notes
+The course lecture notes are published at https://course.example/notes for all participants.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-026","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Meeting agenda
+Here is the agenda file: https://meetings.example/agenda. We can discuss it at the scheduled time.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-027","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Documentation
+The API documentation is maintained at https://docs.example/api. Let me know about typos.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-028","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Open workshop
+The workshop description is at https://events.example/workshop and is available to everyone.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-029","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Policy reference
+I found the public policy page at https://policy.example/handbook; it may answer your question.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-030","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Public dataset
+The publicly accessible example files are listed at https://research.example/data.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-031","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Lab materials
+Students can read the reference guide at https://lab.example/guide before class.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-032","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Community newsletter
+This month's archive is published at https://community.example/archive.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-033","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Event slides
+I uploaded the presentation at https://slides.example/talk for anyone who attended.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-034","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Library resource
+The open-access reading list is available at https://library.example/reading.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-035","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Release notes
+Here are the latest project release notes: https://releases.example/notes.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-036","AI-assisted synthetic","url_only_or_neutral","data/candidate_emails.json","Subject: Research announcement
+An overview of the new study is at https://news.example/research.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-037","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Security tip
+Do not share your password with anyone, including help desk agents. Ask for help through official channels.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-038","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Training quiz
+The suspicious phrase 'act now' was shown as an example during the cybersecurity seminar.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-039","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Account safety reminder
+Never enter your password on unfamiliar pages; this message is a warning, not a verification request.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-040","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Security awareness
+If an email says 'immediate action required', confirm with your organization before responding.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-041","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Mock exercise notes
+Yesterday we discussed the example 'provide your login credentials'. It is not a legitimate support request.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-042","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Password education
+We teach students not to share your password with strangers even if the email looks official.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-043","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Scam recognition
+The phrase 'within 24 hours' can be a manipulation tactic in a fraudulent message.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-044","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Help desk policy
+A support agent will not ask you to enter your password in an emailed form.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-045","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Classroom example
+In a hypothetical phishing message, the author wrote 'last warning' to create pressure.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-046","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Interview transcript
+The participant described receiving an email saying 'send your password', but no action was requested here.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-047","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Security bulletin
+Avoid messages that instruct recipients to provide their one-time code; real support staff should not request it.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-048","AI-assisted synthetic","negation_or_quoted_hard_negative","data/candidate_emails.json","Subject: Fraud prevention
+The training slide included a sample URL https://fake-portal.example/demo but told participants not to use it.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-049","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Weekly check-in
+Our project meeting will be on Tuesday at 3 PM. Please bring your notes for discussion.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-050","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Feedback summary
+Thank you for reviewing the draft. I have incorporated your comments in the updated document.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-051","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Reading group
+The next paper for our group covers evaluation metrics in natural language processing.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-052","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Office supplies
+The new markers and notebooks arrived at the lab this morning. They are in the storage cabinet.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-053","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Research update
+I finished cleaning the text dataset and will discuss the annotation schema at our meeting.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-054","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Team lunch
+We are planning lunch after the seminar. Let me know your preferred cuisine.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-055","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Class reminder
+Tomorrow's lecture covers language modeling and transformer attention mechanisms.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-056","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Proposal review
+The updated abstract describes the research problem and the evaluation plan.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-057","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: File organization
+I moved the source documents to the shared project folder and reorganized the naming convention.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-058","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Research seminar
+The speaker will present findings from a recent study of language variation.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-059","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Lab hours
+The computer laboratory opens at 9 AM and closes at 6 PM on weekdays.","","","","","UNREVIEWED","","","","","","","","","","",""
+"PNE-060","AI-assisted synthetic","ordinary_no_cue","data/candidate_emails.json","Subject: Draft received
+I have received your revised outline and will send comments after reading it.","","","","","UNREVIEWED","","","","","","","","","","",""
