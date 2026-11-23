@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#09101a" />
+  <meta name="description" content="PhishExplain-NLP is an explainable phishing-language research workbench comparing rules and transformer-based information extraction. CAP 6640, Florida Atlantic University." />
+  <meta property="og:title" content="PhishExplain-NLP | Explainable Email Threat Language Research" />
+  <meta property="og:description" content="Explore how linguistic cues in emails can be detected, explained, and evaluated using classical NLP and transformers." />
+  <title>PhishExplain-NLP — Explainable Phishing Language Research</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div><div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#top" aria-label="PhishExplain NLP home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 2.5 28 7v8.3c0 7.3-4.7 11.8-12 14.2C8.7 27.1 4 22.6 4 15.3V7l12-4.5Z" stroke="currentColor" stroke-width="1.8"/><path d="m10.5 16 3.4 3.4 7.6-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="brand-name">PhishExplain<span class="brand-suffix">.NLP</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#overview">Overview</a><a href="#lab">Live lab</a><a href="#methods">Methodology</a><a href="#evidence">Evidence</a><a href="#research">Research</a>
+      </nav>
+      <div class="nav-actions"><span class="nav-status"><span class="status-dot"></span>Research prototype</span><a class="nav-github" href="https://github.com/Arungharami/PhishExplain-NLP" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><button class="menu-button" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">☰</button></div>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#overview">Overview</a><a href="#lab">Live lab</a><a href="#methods">Methodology</a><a href="#evidence">Evidence</a><a href="#research">Research</a></nav>
+  </header>
+  <main id="top">
+    <section class="hero section container" id="overview">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> CAP 6640 • NATURAL LANGUAGE PROCESSING <span class="eyebrow-sep">/</span> FALL 2026</div>
+        <h1>Read between<br />the <span class="gradient-word">warning signs.</span></h1>
+        <p class="hero-lead">Every suspicious email leaves a language trail. Explore how interpretable rules and transformer-based NLP can extract phishing cues—and where each approach can fail.</p>
+        <div class="hero-ctas"><a class="button button-primary" href="#lab">Launch analysis lab <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#methods">Explore the study <span aria-hidden="true">→</span></a></div>
+        <div class="hero-context"><div class="context-icon" aria-hidden="true">◈</div><span>Independent student research <span class="muted-divider">·</span> Florida Atlantic University</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+        <div class="signal-float float-top"><span class="float-icon">⌁</span><span>LINGUISTIC SIGNALS</span><strong>3 categories</strong></div>
+        <div class="visual-console">
+          <div class="console-header"><div class="window-controls"><i></i><i></i><i></i></div><span>signal_inspector / example.eml</span><span class="console-more">•••</span></div>
+          <div class="console-content">
+            <div class="console-label">INCOMING MESSAGE <span>ILLUSTRATIVE SAMPLE</span></div>
+            <div class="mail-meta"><span>From</span><strong>Account Review &lt;notice@portal.example&gt;</strong></div>
+            <div class="mail-meta"><span>Subject</span><strong>Account access verification</strong></div>
+            <div class="console-divider"></div>
+            <p>Hello,</p><p><mark class="mark-urgent">Immediate action required</mark>. Your account access will be paused in <mark class="mark-urgent">24 hours</mark> unless you verify your information.</p>
+            <p>Please <mark class="mark-credential">enter your password</mark> at <mark class="mark-url">https://verify.example/login</mark> to complete the process.</p>
+            <p>Security Team</p>
+          </div>
+          <div class="console-footer"><span><span class="live-pulse"></span> SIGNAL EXTRACTION</span><span>Rules • Demonstration</span></div>
+        </div>
+        <div class="signal-float float-bottom"><span class="float-check">✓</span><div><strong>Evidence-first analysis</strong><small>Observable spans, not guesses</small></div></div>
+      </div>
+    </section>
+    <section class="container stats-strip" aria-label="Project at a glance">
+      <div><span class="stat-number">03</span><span class="stat-label">Target signal families</span></div>
+      <div><span class="stat-number">02</span><span class="stat-label">Planned approaches</span></div>
+      <div><span class="stat-number">60<span class="stat-plus">+</span></span><span class="stat-label">Planned text examples</span></div>
+      <div><span class="stat-number">Dec 04</span><span class="stat-label">Course submission · 2026</span></div>
+    </section>
+    <section class="section container signals-section" id="signals">
+      <div class="section-intro"><div><span class="section-kicker">01 / THE PROBLEM</span><h2>Three signals.<br /><span class="muted-heading">One critical question.</span></h2></div><p>Can we reliably extract the linguistic evidence of a phishing attempt without mistaking ordinary business messages for attacks?</p></div>
+      <div class="signal-grid">
+        <article class="signal-card"><span class="signal-card-icon icon-cyan">↗</span><div class="signal-number">01 / LINK PATTERNS</div><h3>Suspicious link cues</h3><p>Identify URLs and domains inside a message as candidates for review. A URL match alone is never proof of phishing.</p><span class="signal-example">https://portal.example/verify</span></article>
+        <article class="signal-card"><span class="signal-card-icon icon-coral">◷</span><div class="signal-number">02 / PRESSURE LANGUAGE</div><h3>Urgency &amp; pressure</h3><p>Detect phrases that push recipients toward rushed decisions through deadlines, warnings, and consequences.</p><span class="signal-example">“act now” · “within 24 hours”</span></article>
+        <article class="signal-card"><span class="signal-card-icon icon-purple">◇</span><div class="signal-number">03 / SENSITIVE REQUESTS</div><h3>Credential requests</h3><p>Surface explicit requests for passwords, verification codes, or account credentials, including their context.</p><span class="signal-example">“enter your password”</span></article>
+      </div>
+    </section>
+    <section class="section lab-section" id="lab">
+      <div class="container">
+        <div class="section-intro lab-intro"><div><span class="section-kicker">02 / INTERACTIVE WORKBENCH</span><h2>Explore the evidence.<br /><span class="muted-heading">Not just a verdict.</span></h2></div><p>Try a synthetic example or paste non-sensitive text. The working baseline uses transparent regex and keyword rules; no message is sent to a server.</p></div>
+        <div class="lab-shell">
+          <div class="lab-toolbar"><div><span class="lab-toolbar-symbol">⌘</span> PHISHEXPLAIN / ANALYSIS STUDIO</div><span class="lab-toolbar-tag"><span class="status-dot"></span> LOCAL RULE ENGINE</span></div>
+          <div class="lab-columns">
+            <div class="lab-input-pane">
+              <div class="pane-heading"><div><span class="pane-step">01</span><h3>Message input</h3></div><span class="pane-subtitle">TEXT INPUT</span></div>
+              <label for="message-input" class="field-label">EMAIL BODY / MESSAGE</label>
+              <textarea id="message-input" spellcheck="false" aria-describedby="privacy-note" placeholder="Paste a public or synthetic email here. Avoid personal or confidential data."></textarea>
+              <div class="field-bottom"><span id="char-count">0 characters</span><button id="clear-input" type="button" class="text-button">Clear input ↗</button></div>
+              <div class="example-heading">TRY AN ILLUSTRATIVE SAMPLE</div>
+              <div class="sample-buttons" id="sample-buttons">
+                <button class="sample-button active" data-sample="account" type="button"><span class="sample-dot dot-coral"></span>Account alert</button>
+                <button class="sample-button" data-sample="delivery" type="button"><span class="sample-dot dot-orange"></span>Delivery update</button>
+                <button class="sample-button" data-sample="normal" type="button"><span class="sample-dot dot-cyan"></span>Routine message</button>
+                <button class="sample-button" data-sample="ambiguous" type="button"><span class="sample-dot dot-purple"></span>Hard negative</button>
+              </div>
+              <button class="button button-primary analyze-button" id="analyze-button" type="button"><span>Run rule-based extraction</span><span aria-hidden="true">↗</span></button>
+              <p id="privacy-note" class="privacy-note"><span aria-hidden="true">⌁</span> All analysis runs in this browser. Do not paste private, real customer, or confidential email content.</p>
+            </div>
+            <div class="lab-output-pane">
+              <div class="pane-heading"><div><span class="pane-step">02</span><h3>Signal evidence</h3></div><span class="pane-subtitle">EXPLAINABLE OUTPUT</span></div>
+              <div class="output-topbar"><span class="result-status" id="result-status">Awaiting analysis</span><div class="view-switch" role="group" aria-label="Output view"><button id="view-signals" class="active" type="button" aria-pressed="true">Signals</button><button id="view-json" type="button" aria-pressed="false">JSON</button></div></div>
+              <div id="signals-panel" aria-live="polite" aria-atomic="false"><div class="empty-results"><div class="empty-orbit">◎</div><strong>No extraction yet</strong><p>Select a sample and run the baseline to inspect matched text spans and rule explanations.</p></div></div>
+              <div id="json-panel" hidden><pre class="json-view" id="json-content">{ "status": "awaiting_analysis" }</pre><button class="text-button" id="copy-json" type="button">Copy JSON ↗</button></div>
+              <div class="model-banner"><span class="model-banner-symbol">✧</span><div><strong>Transformer comparator</strong><p>Planned, not yet connected. No LLM predictions or accuracy claims are shown.</p></div><span class="model-pending">PENDING</span></div>
+            </div>
+          </div>
+          <div class="lab-footer"><span>Prototype scope: extraction, not phishing classification or a security verdict.</span><button id="download-json" class="text-button" type="button" disabled>Export result ↗</button></div>
+        </div>
+      </div>
+    </section>
+    <section class="section container methods-section" id="methods">
+      <div class="section-intro"><div><span class="section-kicker">03 / EXPERIMENT DESIGN</span><h2>Different methods.<br /><span class="muted-heading">One fair comparison.</span></h2></div><p>Both approaches will receive the same frozen examples, annotation schema, and evaluation criteria. The study prioritizes extractable evidence and reproducibility.</p></div>
+      <div class="methods-grid">
+        <article class="method-card"><div class="method-head"><span class="method-index">METHOD / A</span><span class="method-badge working">DEMO IMPLEMENTED</span></div><span class="method-glyph">{"{ }"}</span><h3>Lexical rule engine</h3><p>Regex URL matching, curated phrase lexicons, boundary-aware patterns, and explicit match spans.</p><div class="method-rule"></div><div class="method-detail"><span>Representation</span><strong>Surface forms + pattern matching</strong></div><div class="method-detail"><span>Strength</span><strong>Auditable, deterministic output</strong></div><div class="method-detail"><span>Expected limitation</span><strong>Paraphrases and context</strong></div></article>
+        <div class="method-versus"><span>VS</span></div>
+        <article class="method-card method-transformer"><div class="method-head"><span class="method-index">METHOD / B</span><span class="method-badge planned">EXPERIMENT PENDING</span></div><span class="method-glyph glyph-purple">✳</span><h3>Prompted transformer LLM</h3><p>Structured extraction with a fixed prompt, identical label definitions, and a machine-readable JSON contract.</p><div class="method-rule"></div><div class="method-detail"><span>Representation</span><strong>Contextual language understanding</strong></div><div class="method-detail"><span>Strength to test</span><strong>Semantic and indirect requests</strong></div><div class="method-detail"><span>Risk to evaluate</span><strong>Unsupported or invented spans</strong></div></article>
+      </div>
+      <div class="comparison-note"><span class="comparison-note-icon">◎</span><p><strong>Controlled experiment:</strong> Compare exact evidence spans and normalized cue categories against independently reviewed human gold annotations. Do not compare one method on demo samples and the other on separate examples.</p></div>
+    </section>
+    <section class="section evidence-section" id="evidence">
+      <div class="container">
+        <div class="section-intro"><div><span class="section-kicker">04 / REPRODUCIBILITY</span><h2>Evidence over<br /><span class="muted-heading">impressive numbers.</span></h2></div><p>Results will be published only after data, human gold labels, model outputs, and error calculations are checked and frozen.</p></div>
+        <div class="evidence-layout">
+          <div class="evidence-main">
+            <div class="evidence-head"><span>EXPERIMENT EVIDENCE BOARD</span><span class="evidence-pill">STUDY IN PREPARATION</span></div>
+            <div class="evidence-kpi"><div><small>TARGET EXAMPLES</small><strong>60</strong><span>public or synthetic texts</span></div><div><small>MIN. HUMAN GOLD</small><strong>30</strong><span>personally reviewed examples</span></div><div><small>REQUIRED ERRORS</small><strong>6</strong><span>three per method</span></div></div>
+            <div class="evaluation-empty"><div class="evaluation-icon">╱╲</div><div><strong>Measured results: not available yet</strong><p>Precision, recall, F1, and paired error inspection will appear here only after the benchmark is run and independently verified.</p></div></div>
+            <a class="button button-outline evidence-download" href="/evidence-template.csv" download>Download evidence CSV template <span aria-hidden="true">↓</span></a>
+          </div>
+          <aside class="protocol-card"><span class="protocol-title">EVALUATION CONTRACT</span><div class="protocol-item"><span>01</span><div><strong>Public / synthetic data only</strong><p>Keep private or identifiable emails out of the dataset.</p></div></div><div class="protocol-item"><span>02</span><div><strong>Gold before model scoring</strong><p>Review at least 30 labels yourself; verify offsets and negatives.</p></div></div><div class="protocol-item"><span>03</span><div><strong>Same held-out records</strong><p>Apply one annotation policy to both approaches.</p></div></div><div class="protocol-item"><span>04</span><div><strong>Document failure cases</strong><p>Explain three concrete mistakes from each method.</p></div></div></aside>
+        </div>
+      </div>
+    </section>
+    <section class="section container research-section" id="research">
+      <div class="section-intro"><div><span class="section-kicker">05 / ACADEMIC DELIVERABLES</span><h2>Built for review.<br /><span class="muted-heading">Designed for scrutiny.</span></h2></div><p>Project artifacts follow the CAP 6640 final-project specification. Proposed documents are not represented as completed submissions.</p></div>
+      <div class="deliverable-grid">
+        <article class="deliverable-card"><div class="deliverable-top"><span>01 / WRITTEN REPORT</span><span>↗</span></div><div class="deliverable-icon">▤</div><h3>Executive research memo</h3><p>5–10 pages excluding references: problem, literature, domain technology, methods, results, error analysis, risks, reflection and citations.</p><span class="deliverable-status">In preparation</span></article>
+        <article class="deliverable-card"><div class="deliverable-top"><span>02 / RESEARCH EVIDENCE</span><span>↗</span></div><div class="deliverable-icon">▦</div><h3>Evidence spreadsheet</h3><p>One row per evaluated example with text, human gold label, both outputs, metric calculations and experimental settings.</p><span class="deliverable-status">Template available</span></article>
+        <article class="deliverable-card"><div class="deliverable-top"><span>03 / REPRODUCIBILITY</span><span>↗</span></div><div class="deliverable-icon">⌘</div><h3>Methods &amp; source code</h3><p>Auditable lexical extractor, annotation schema, LLM prompt specification and reproducible experiment protocol.</p><a class="inline-link" href="https://github.com/Arungharami/PhishExplain-NLP" target="_blank" rel="noopener noreferrer">View source code ↗</a></article>
+      </div>
+      <div class="research-band"><div><span class="section-kicker">RESEARCH QUESTION</span><h3>When does surface-form extraction fail to capture the meaning of an email?</h3><p>Particular focus: urgency expressed without trigger words, quoted or negated requests, misleading URLs, and benign account-related messages.</p></div><a class="button button-primary" href="https://github.com/Arungharami/PhishExplain-NLP/blob/main/docs/EXPERIMENT_PROTOCOL.md" target="_blank" rel="noopener noreferrer">Read experiment protocol ↗</a></div>
+    </section>
+    <section class="section container final-section">
+      <div class="final-card"><div class="final-orb" aria-hidden="true"></div><span class="section-kicker">CLEAR RESEARCH. VISIBLE LIMITATIONS.</span><h2>Make every prediction<br /><span class="gradient-word">accountable.</span></h2><p>Not a black box. Not a production mail filter. A transparent NLP experiment designed to show where models succeed, where they struggle, and why.</p><div class="final-actions"><a class="button button-primary" href="#lab">Try the lab ↗</a><a class="button button-outline" href="https://github.com/Arungharami/PhishExplain-NLP" target="_blank" rel="noopener noreferrer">Source repository ↗</a></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-content"><div><div class="footer-brand">PhishExplain<span>.NLP</span></div><p>Explainable phishing-language research<br />CAP 6640 · Florida Atlantic University · Fall 2026</p></div><div class="footer-right"><span>Research prototype · Not an email security product</span><span>Created by Arun Kumar Gharami</span><a href="#top">Back to top ↑</a></div></div><div class="container footer-bottom">No live email ingestion. No server-side storage. Never follow suspicious links or submit private data.</div></footer>
+</body>
+</html>
