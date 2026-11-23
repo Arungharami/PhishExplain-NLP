@@ -1,0 +1,3 @@
+example_id,source_type,source_reference,text,gold_url_spans,gold_urgency_spans,gold_credential_spans,reviewed_by,review_status,baseline_output,transformer_output,baseline_tp,baseline_fp,baseline_fn,transformer_tp,transformer_fp,transformer_fn,error_notes,prompt_version,model_settings
+PNE-001,synthetic,author_created,,,,,,UNREVIEWED,,,,,,,,,,
+PNE-002,synthetic,author_created,,,,,,UNREVIEWED,,,,,,,,,,
