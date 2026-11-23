@@ -1,0 +1,17 @@
+{
+  "generated_by": "scripts/vendor.mjs",
+  "libraries": {
+    "postal-mime": {
+      "version": "4.2.1",
+      "license": "MIT-0",
+      "file": "vendor/postal-mime.js",
+      "sha256": "9605b7f0727f1ba9073dd153fed350afe0d75381aa73f68e40aa96ed6f35c0f4"
+    },
+    "tldts": {
+      "version": "7.5.5",
+      "license": "MIT",
+      "file": "vendor/tldts.js",
+      "sha256": "4349ca7b244ca153ac9a49682f5b735390cb0d532899f26bc4709e0d4fbeee86"
+    }
+  }
+}
