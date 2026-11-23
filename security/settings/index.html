@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070d17">
+<meta name="description" content="Control local history, retention, access keys and data deletion. See which optional integrations are configured.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Settings & Privacy — PhishExplain Shield">
+<meta property="og:description" content="Control local history, retention, access keys and data deletion. See which optional integrations are configured.">
+<title>Settings & Privacy — PhishExplain Shield</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/shield.css">
+<script type="module" src="/shield.js"></script>
+</head>
+<body data-page="settings">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="/"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2.5 28 7v8.3c0 7.3-4.7 11.8-12 14.2C8.7 27.1 4 22.6 4 15.3V7l12-4.5Z" stroke="currentColor" stroke-width="1.8"/><path d="m10.5 16 3.4 3.4 7.6-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PhishExplain <span class="accent">Shield</span><small>Email threat analysis</small></span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <div class="nav-group shield"><span class="nav-label">Shield</span><a href="/security/">Scanner</a><a href="/security/dashboard/">Dashboard</a><a href="/security/links/">Links</a><a href="/security/headers/">Headers</a><a href="/security/analysis/">Analysis</a><a href="/security/reports/">Reports</a><a href="/security/settings/" aria-current="page">Settings</a></div>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <div class="nav-group research"><span class="nav-label">Research Lab</span><a href="/lab/">Lab</a><a href="/annotation/">Annotation</a><a href="/evaluation/">Evaluation</a><a href="/course/">Course</a><a href="/nlp/">Overview</a></div>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<section class="wrap page-head"><span class="kicker">Settings & privacy</span><h1>You decide what is kept.</h1><p class="lead">Shield works without an account and keeps nothing by default. These settings apply only to this browser.</p></section>
+<div class="wrap grid grid-2">
+  <section class="card" aria-labelledby="st-hist"><h2 id="st-hist">Local scan history</h2>
+    <p class="small muted">When enabled, each scan you choose to save is stored in this browser's local storage (not encrypted by Shield, not synced, not sent anywhere). Saved reports include sender addresses, subjects, URLs and short evidence excerpts — not the full message.</p>
+    <label class="check"><input type="checkbox" id="set-history"> Save scan reports in this browser so I can track investigations on the dashboard.</label>
+    <label class="field" for="set-retention">Delete saved reports automatically after<select id="set-retention" class="select"><option value="7">7 days</option><option value="30">30 days</option><option value="90">90 days</option><option value="0">Never (until I delete them)</option></select></label>
+    <label class="check"><input type="checkbox" id="set-autosave"> Save every completed scan automatically (otherwise use "Save to history").</label>
+    <p id="set-status" class="small" role="status" aria-live="polite"></p>
+  </section>
+  <section class="card" aria-labelledby="st-key"><h2 id="st-key">Shield access key</h2>
+    <p class="small muted">Optional reputation and AI checks are protected by an access key issued by the deployment owner. The key is kept in this tab's session storage only and is cleared when the tab closes. It is never included in reports.</p>
+    <label class="field" for="set-key">Access key<input id="set-key" class="input" type="password" autocomplete="off"></label>
+    <div class="row"><button class="btn small" id="key-save" type="button">Use for this session</button><button class="btn small" id="key-clear" type="button">Forget key</button></div>
+  </section>
+  <section class="card" aria-labelledby="st-svc"><h2 id="st-svc">Service status</h2><p class="small muted">Reported live by this deployment. Unavailable services never block the local scanner.</p><div id="svc-status" class="stack small"></div></section>
+  <section class="card" aria-labelledby="st-int"><h2 id="st-int">Accounts & integrations</h2>
+    <div class="table-wrap"><table><thead><tr><th scope="col">Capability</th><th scope="col">Status</th></tr></thead><tbody>
+      <tr><td>User accounts &amp; cloud history</td><td><span class="chip muted">Not available</span></td></tr>
+      <tr><td>Organization workspaces / team access</td><td><span class="chip muted">Not available</span></td></tr>
+      <tr><td>Gmail read-only inspection (OAuth)</td><td><span class="chip muted">Planned — not implemented</span></td></tr>
+      <tr><td>Microsoft 365 / Outlook (Graph)</td><td><span class="chip muted">Planned — not implemented</span></td></tr>
+      <tr><td>Continuous inbox protection</td><td><span class="chip muted">Not offered</span></td></tr>
+    </tbody></table></div>
+  </section>
+  <section class="card" aria-labelledby="st-del"><h2 id="st-del">Delete data</h2><p class="small muted">Removes saved history, settings, the current analysis and any session key from this browser.</p><button class="btn danger" id="delete-all" type="button">Delete all Shield data in this browser</button></section>
+  <section class="card" id="privacy" aria-labelledby="st-priv"><h2 id="st-priv">Privacy summary</h2><ul class="feature-list small">
+    <li>The scanner parses messages in your browser. Message content is not uploaded.</li>
+    <li>Reputation checks send only the selected URLs, and only after you consent.</li>
+    <li>AI analysis sends the message text to the model provider, and only after you consent.</li>
+    <li>The server logs operational metadata (counts, latency, token usage) — never message text or URLs.</li>
+    <li>No analytics, advertising trackers or third-party fonts are loaded.</li>
+    <li>Use synthetic or your own messages. Do not submit other people's private email unless you are authorized.</li></ul></section>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div><strong>PhishExplain Shield</strong> (beta) · Intelligent Email Threat Analysis. Clear Evidence. Safer Decisions.<br>Manual, evidence-based analysis. Never a guarantee of safety. Product owner: Arun Kumar Gharami.</div>
+    <div class="footer-links"><a href="/security/settings/#privacy">Privacy</a><a href="/security/#limitations">Limitations</a><a href="/course/">CAP 6640 research</a><a href="https://github.com/Arungharami/PhishExplain-NLP" rel="noopener noreferrer" target="_blank">Source code</a></div>
+  </div>
+</footer>
+</body>
+</html>

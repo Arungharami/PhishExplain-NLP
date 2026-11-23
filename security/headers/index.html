@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070d17">
+<meta name="description" content="Visualize Received hops, compare From, Reply-To and Return-Path, and read SPF, DKIM and DMARC claims with correct trust boundaries.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Email Header Analyzer — PhishExplain Shield">
+<meta property="og:description" content="Visualize Received hops, compare From, Reply-To and Return-Path, and read SPF, DKIM and DMARC claims with correct trust boundaries.">
+<title>Email Header Analyzer — PhishExplain Shield</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/shield.css">
+<script type="module" src="/shield.js"></script>
+</head>
+<body data-page="headers">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="/"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2.5 28 7v8.3c0 7.3-4.7 11.8-12 14.2C8.7 27.1 4 22.6 4 15.3V7l12-4.5Z" stroke="currentColor" stroke-width="1.8"/><path d="m10.5 16 3.4 3.4 7.6-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PhishExplain <span class="accent">Shield</span><small>Email threat analysis</small></span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <div class="nav-group shield"><span class="nav-label">Shield</span><a href="/security/">Scanner</a><a href="/security/dashboard/">Dashboard</a><a href="/security/links/">Links</a><a href="/security/headers/" aria-current="page">Headers</a><a href="/security/analysis/">Analysis</a><a href="/security/reports/">Reports</a><a href="/security/settings/">Settings</a></div>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <div class="nav-group research"><span class="nav-label">Research Lab</span><a href="/lab/">Lab</a><a href="/annotation/">Annotation</a><a href="/evaluation/">Evaluation</a><a href="/course/">Course</a><a href="/nlp/">Overview</a></div>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<section class="wrap page-head"><span class="kicker">Email header analyzer</span><h1>Follow the route. Question the claims.</h1><p class="lead">Paste the full original headers (in Gmail: ⋮ → Show original; in Outlook: File → Properties → Internet headers). Shield parses the route and authentication claims locally.</p><div class="alert warn mt-16 mw-820"><strong>Trust boundary:</strong> SPF, DKIM and DMARC results in pasted headers are <strong>unverified claims</strong>. Anyone can write or edit these headers. Shield does not perform authentication checks and never reports them as verified.</div></section>
+<div class="wrap">
+  <section class="card" aria-labelledby="hdr-h"><h2 id="hdr-h">Headers</h2>
+    <label class="field" for="header-input">Raw headers (a body is optional)</label>
+    <textarea id="header-input" class="textarea min-200" spellcheck="false" placeholder="Received: from ...&#10;Authentication-Results: ...&#10;From: ...&#10;Subject: ..."></textarea>
+    <div class="row mt-12"><button class="btn primary" id="hdr-analyze" type="button">Analyze headers</button><button class="btn" id="hdr-current" type="button">Use current scan</button></div>
+    <p id="hdr-status" class="small" role="status" aria-live="polite"></p>
+  </section>
+  <div id="hdr-results" class="hidden mt-18">
+    <div class="grid grid-2"><section class="card" aria-labelledby="snd-h"><h2 id="snd-h">Sender identity</h2><div id="hdr-sender"></div></section><section class="card" aria-labelledby="auth-h"><h2 id="auth-h">Authentication claims <span class="chip warn">Unverified</span></h2><div id="hdr-auth"></div></section></div>
+    <section class="card" aria-labelledby="hop-h"><h2 id="hop-h">Received route (oldest first)</h2><p class="card-sub">Each relay adds a Received header at the top. Only the hops added by your own provider's servers are trustworthy; earlier hops can be forged by the sender.</p><div id="hdr-hops" class="mt-14"></div></section>
+    <section class="card" aria-labelledby="hf-h"><h2 id="hf-h">Header findings</h2><div id="hdr-findings" class="findings"></div></section>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div><strong>PhishExplain Shield</strong> (beta) · Intelligent Email Threat Analysis. Clear Evidence. Safer Decisions.<br>Manual, evidence-based analysis. Never a guarantee of safety. Product owner: Arun Kumar Gharami.</div>
+    <div class="footer-links"><a href="/security/settings/#privacy">Privacy</a><a href="/security/#limitations">Limitations</a><a href="/course/">CAP 6640 research</a><a href="https://github.com/Arungharami/PhishExplain-NLP" rel="noopener noreferrer" target="_blank">Source code</a></div>
+  </div>
+</footer>
+</body>
+</html>

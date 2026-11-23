@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070d17">
+<meta name="description" content="Inspect URL structure without visiting it: registered domain, punycode, look-alikes, shorteners, IP hosts and redirects. Optional provider reputation lookups.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="URL Inspection Center — PhishExplain Shield">
+<meta property="og:description" content="Inspect URL structure without visiting it: registered domain, punycode, look-alikes, shorteners, IP hosts and redirects. Optional provider reputation lookups.">
+<title>URL Inspection Center — PhishExplain Shield</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/shield.css">
+<script type="module" src="/shield.js"></script>
+</head>
+<body data-page="links">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="/"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2.5 28 7v8.3c0 7.3-4.7 11.8-12 14.2C8.7 27.1 4 22.6 4 15.3V7l12-4.5Z" stroke="currentColor" stroke-width="1.8"/><path d="m10.5 16 3.4 3.4 7.6-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PhishExplain <span class="accent">Shield</span><small>Email threat analysis</small></span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <div class="nav-group shield"><span class="nav-label">Shield</span><a href="/security/">Scanner</a><a href="/security/dashboard/">Dashboard</a><a href="/security/links/" aria-current="page">Links</a><a href="/security/headers/">Headers</a><a href="/security/analysis/">Analysis</a><a href="/security/reports/">Reports</a><a href="/security/settings/">Settings</a></div>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <div class="nav-group research"><span class="nav-label">Research Lab</span><a href="/lab/">Lab</a><a href="/annotation/">Annotation</a><a href="/evaluation/">Evaluation</a><a href="/course/">Course</a><a href="/nlp/">Overview</a></div>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<section class="wrap page-head"><span class="kicker">URL inspection center</span><h1>Look at a link without opening it.</h1><p class="lead">Paste one URL per line, or load the links from your current scan. Shield parses each URL as text — it never visits, resolves or follows it.</p></section>
+<div class="wrap">
+  <section class="card" aria-labelledby="url-h"><h2 id="url-h">URLs to inspect</h2>
+    <label class="field" for="url-input">One URL per line (http, https or www.)</label>
+    <textarea id="url-input" class="textarea min-140" spellcheck="false" placeholder="https://example.com/login"></textarea>
+    <div class="row mt-12"><button class="btn primary" id="inspect" type="button">Inspect URLs</button><button class="btn" id="use-current" type="button">Load links from current scan</button></div>
+    <p id="url-status" class="small" role="status" aria-live="polite"></p>
+  </section>
+  <div id="url-results" class="stack mt-18"></div>
+  <section class="card mt-18" aria-labelledby="rep-h">
+    <div class="card-head"><div><h2 id="rep-h">External reputation lookup</h2><p class="card-sub">Optional · server-side · allow-listed providers only</p></div><span class="chip muted" id="rep-config">Checking configuration…</span></div>
+    <div class="alert info">Selected URLs (with any embedded user names or passwords removed) are sent from our server to the configured providers' APIs. Providers may log the queries. Shield never fetches the URL itself. A "not listed" response is not a safety verdict.</div>
+    <div id="rep-controls" class="hidden">
+      <label class="check"><input type="checkbox" id="rep-consent"> I consent to sending these URLs to the listed third-party reputation providers.</label>
+      <label class="field hidden" id="rep-key-field" for="rep-key">Shield access key (kept only for this tab)<input id="rep-key" class="input" type="password" autocomplete="off"></label>
+      <button class="btn" id="rep-run" type="button" disabled>Check reputation</button>
+    </div>
+    <p id="rep-status" class="small" role="status" aria-live="polite"></p>
+    <div id="rep-results"></div>
+  </section>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div><strong>PhishExplain Shield</strong> (beta) · Intelligent Email Threat Analysis. Clear Evidence. Safer Decisions.<br>Manual, evidence-based analysis. Never a guarantee of safety. Product owner: Arun Kumar Gharami.</div>
+    <div class="footer-links"><a href="/security/settings/#privacy">Privacy</a><a href="/security/#limitations">Limitations</a><a href="/course/">CAP 6640 research</a><a href="https://github.com/Arungharami/PhishExplain-NLP" rel="noopener noreferrer" target="_blank">Source code</a></div>
+  </div>
+</footer>
+</body>
+</html>

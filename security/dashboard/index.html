@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070d17">
+<meta name="description" content="Review saved analyses, track investigation status and analyst notes. Stored only in this browser when enabled.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Security Dashboard — PhishExplain Shield">
+<meta property="og:description" content="Review saved analyses, track investigation status and analyst notes. Stored only in this browser when enabled.">
+<title>Security Dashboard — PhishExplain Shield</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/shield.css">
+<script type="module" src="/shield.js"></script>
+</head>
+<body data-page="dashboard">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="/"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2.5 28 7v8.3c0 7.3-4.7 11.8-12 14.2C8.7 27.1 4 22.6 4 15.3V7l12-4.5Z" stroke="currentColor" stroke-width="1.8"/><path d="m10.5 16 3.4 3.4 7.6-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PhishExplain <span class="accent">Shield</span><small>Email threat analysis</small></span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <div class="nav-group shield"><span class="nav-label">Shield</span><a href="/security/">Scanner</a><a href="/security/dashboard/" aria-current="page">Dashboard</a><a href="/security/links/">Links</a><a href="/security/headers/">Headers</a><a href="/security/analysis/">Analysis</a><a href="/security/reports/">Reports</a><a href="/security/settings/">Settings</a></div>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <div class="nav-group research"><span class="nav-label">Research Lab</span><a href="/lab/">Lab</a><a href="/annotation/">Annotation</a><a href="/evaluation/">Evaluation</a><a href="/course/">Course</a><a href="/nlp/">Overview</a></div>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<section class="wrap page-head"><span class="kicker">Security dashboard</span><h1>Your saved investigations</h1><p class="lead">Counters on this page come only from analyses you chose to save in this browser. Workflow states describe your review progress, not whether a message is malicious.</p><div class="status-strip"><span class="chip warn"><span class="dot"></span>No inbox monitoring — manual submissions only</span><span class="chip">Stored locally in this browser</span></div></section>
+<div class="wrap">
+  <div class="card hidden" id="history-disabled"><h2>Local history is off</h2><p class="muted">Scan reports are not saved by default. To track investigations here, enable local history in <a href="/security/settings/">Settings</a>. Saved reports contain sender details, URLs and short evidence excerpts, but not the full message.</p></div>
+  <div id="dashboard" class="hidden">
+    <div class="grid grid-4" id="dash-stats"></div>
+    <div class="card mt-18">
+      <div class="card-head"><div><h2>Investigations</h2><p class="card-sub">Sorted by most recently updated</p></div><div class="row"><label class="sr-only" for="status-filter">Filter by status</label><select id="status-filter" class="select w-auto"></select><button class="btn small" id="export-history" type="button">Export all (JSON)</button></div></div>
+      <div class="table-wrap"><table><thead><tr><th scope="col">Saved</th><th scope="col">Subject / sender</th><th scope="col">Index</th><th scope="col">Findings</th><th scope="col">Status</th><th scope="col">Actions</th></tr></thead><tbody id="history-rows"></tbody></table></div>
+      <p class="hint" id="history-empty"></p>
+    </div>
+    <div class="card hidden" id="notes-card"><div class="card-head"><h2 id="notes-title">Analyst notes</h2><button class="btn small" id="notes-close" type="button">Close</button></div><ul id="notes-list" class="stack small"></ul><label class="field" for="note-input">Add a note</label><textarea id="note-input" class="input" rows="3" maxlength="2000"></textarea><div class="row mt-10"><button class="btn primary small" id="note-add" type="button">Add note</button></div></div>
+  </div>
+  <p id="dash-status" class="small" role="status" aria-live="polite"></p>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div><strong>PhishExplain Shield</strong> (beta) · Intelligent Email Threat Analysis. Clear Evidence. Safer Decisions.<br>Manual, evidence-based analysis. Never a guarantee of safety. Product owner: Arun Kumar Gharami.</div>
+    <div class="footer-links"><a href="/security/settings/#privacy">Privacy</a><a href="/security/#limitations">Limitations</a><a href="/course/">CAP 6640 research</a><a href="https://github.com/Arungharami/PhishExplain-NLP" rel="noopener noreferrer" target="_blank">Source code</a></div>
+  </div>
+</footer>
+</body>
+</html>

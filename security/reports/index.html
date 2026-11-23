@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070d17">
+<meta name="description" content="Export inspection reports as JSON, CSV, standalone HTML or PDF (via print). Generated locally.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Reports & Exports — PhishExplain Shield">
+<meta property="og:description" content="Export inspection reports as JSON, CSV, standalone HTML or PDF (via print). Generated locally.">
+<title>Reports & Exports — PhishExplain Shield</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/shield.css">
+<script type="module" src="/shield.js"></script>
+</head>
+<body data-page="reports">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="/"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2.5 28 7v8.3c0 7.3-4.7 11.8-12 14.2C8.7 27.1 4 22.6 4 15.3V7l12-4.5Z" stroke="currentColor" stroke-width="1.8"/><path d="m10.5 16 3.4 3.4 7.6-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PhishExplain <span class="accent">Shield</span><small>Email threat analysis</small></span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <div class="nav-group shield"><span class="nav-label">Shield</span><a href="/security/">Scanner</a><a href="/security/dashboard/">Dashboard</a><a href="/security/links/">Links</a><a href="/security/headers/">Headers</a><a href="/security/analysis/">Analysis</a><a href="/security/reports/" aria-current="page">Reports</a><a href="/security/settings/">Settings</a></div>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <div class="nav-group research"><span class="nav-label">Research Lab</span><a href="/lab/">Lab</a><a href="/annotation/">Annotation</a><a href="/evaluation/">Evaluation</a><a href="/course/">Course</a><a href="/nlp/">Overview</a></div>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<section class="wrap page-head"><span class="kicker">Reports & exports</span><h1>Share the evidence, not the guesswork.</h1><p class="lead">Reports are generated in your browser. Exports include sender details, URLs and short evidence excerpts, but never the full message body and never access keys.</p></section>
+<div class="wrap">
+  <div class="card hidden" id="no-report"><h2>No analysis loaded</h2><p class="muted">Run a scan in the <a href="/security/">Email Threat Scanner</a> first. The current analysis is kept only in this browser tab.</p></div>
+  <div id="report-area" class="hidden">
+    <div class="card no-print"><div class="card-head"><div><h2>Export</h2><p class="card-sub" id="rp-sub"></p></div></div>
+      <div class="row"><button class="btn primary" id="ex-html" type="button">Download HTML report</button><button class="btn" id="ex-print" type="button">Print / save as PDF</button><button class="btn" id="ex-json" type="button">Download JSON</button><button class="btn" id="ex-csv" type="button">Download CSV (findings)</button></div>
+      <p class="hint">PDF export uses your browser's print dialog ("Save as PDF"), which keeps the report on your device.</p></div>
+    <div id="report-view" class="mt-18"></div>
+  </div>
+  <section class="card no-print mt-18"><h2>Open a saved JSON report</h2><p class="muted small">Load a report previously exported from Shield to view or re-export it. The file is validated and read locally.</p><label class="btn" for="import-report">Choose JSON report</label><input type="file" id="import-report" class="sr-only" accept=".json,application/json"><p id="rp-status" class="small" role="status" aria-live="polite"></p></section>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div><strong>PhishExplain Shield</strong> (beta) · Intelligent Email Threat Analysis. Clear Evidence. Safer Decisions.<br>Manual, evidence-based analysis. Never a guarantee of safety. Product owner: Arun Kumar Gharami.</div>
+    <div class="footer-links"><a href="/security/settings/#privacy">Privacy</a><a href="/security/#limitations">Limitations</a><a href="/course/">CAP 6640 research</a><a href="https://github.com/Arungharami/PhishExplain-NLP" rel="noopener noreferrer" target="_blank">Source code</a></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070d17">
+<meta name="description" content="See the evidence behind each indicator, separated into observed facts, heuristic interpretations, external intelligence and optional AI analysis.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:title" content="Explainable Threat Analysis — PhishExplain Shield">
+<meta property="og:description" content="See the evidence behind each indicator, separated into observed facts, heuristic interpretations, external intelligence and optional AI analysis.">
+<title>Explainable Threat Analysis — PhishExplain Shield</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/shield.css">
+<script type="module" src="/shield.js"></script>
+</head>
+<body data-page="analysis">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="/"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 2.5 28 7v8.3c0 7.3-4.7 11.8-12 14.2C8.7 27.1 4 22.6 4 15.3V7l12-4.5Z" stroke="currentColor" stroke-width="1.8"/><path d="m10.5 16 3.4 3.4 7.6-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PhishExplain <span class="accent">Shield</span><small>Email threat analysis</small></span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <div class="nav-group shield"><span class="nav-label">Shield</span><a href="/security/">Scanner</a><a href="/security/dashboard/">Dashboard</a><a href="/security/links/">Links</a><a href="/security/headers/">Headers</a><a href="/security/analysis/" aria-current="page">Analysis</a><a href="/security/reports/">Reports</a><a href="/security/settings/">Settings</a></div>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <div class="nav-group research"><span class="nav-label">Research Lab</span><a href="/lab/">Lab</a><a href="/annotation/">Annotation</a><a href="/evaluation/">Evaluation</a><a href="/course/">Course</a><a href="/nlp/">Overview</a></div>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+
+<section class="wrap page-head"><span class="kicker">Explainable threat analysis</span><h1>Evidence, separated by how much it can be trusted.</h1><p class="lead">Observed facts, heuristic interpretations, provider intelligence and AI judgments are kept apart so they are never presented as interchangeable.</p></section>
+<div class="wrap">
+  <div class="card hidden" id="no-report"><h2>No analysis loaded</h2><p class="muted">Run a scan in the <a href="/security/">Email Threat Scanner</a> first. The current analysis is kept only in this browser tab.</p></div>
+  <div id="analysis" class="hidden">
+    <div class="card"><div class="card-head"><div><h2 id="an-title">Current analysis</h2><p class="card-sub" id="an-sub"></p></div><div class="row"><a class="btn small" href="/security/reports/">Export report</a></div></div><div id="an-summary"></div></div>
+    <div class="grid grid-2 mt-18">
+      <section class="tier observed" aria-labelledby="t1"><div class="tier-head"><span class="chip ok">1</span><h3 id="t1">Observed indicators</h3></div><p class="small muted">Facts read directly from the message structure.</p><div id="tier-observed" class="findings"></div></section>
+      <section class="tier heuristic" aria-labelledby="t2"><div class="tier-head"><span class="chip warn">2</span><h3 id="t2">Heuristic interpretation</h3></div><p class="small muted">Rule-based judgments about wording and resemblance. Can be wrong.</p><div id="tier-heuristic" class="findings"></div></section>
+      <section class="tier intel" aria-labelledby="t3"><div class="tier-head"><span class="chip danger">3</span><h3 id="t3">Verified external intelligence</h3></div><p class="small muted">Only results actually returned by a configured provider.</p><div id="tier-intel"></div></section>
+      <section class="tier ai" aria-labelledby="t4"><div class="tier-head"><span class="chip ai">AI</span><h3 id="t4">AI-assisted contextual analysis</h3></div><p class="small muted">Optional. Model judgments grounded in exact quotes — not verified facts.</p><div id="tier-ai"></div>
+        <div id="ai-controls" class="hidden mt-12"><div class="alert info small">The analyzed message text (up to 12,000 characters) will be sent to the configured model provider (OpenAI) through our server. Do not send messages containing other people's private data unless you are authorized.</div><label class="check"><input type="checkbox" id="ai-consent"> I consent to sending this message text to the AI provider.</label><label class="field" for="ai-key">Shield access key (kept only for this tab)<input id="ai-key" class="input" type="password" autocomplete="off"></label><button class="btn ai" id="ai-run" type="button" disabled>Run AI analysis</button></div>
+        <p id="ai-status" class="small" role="status" aria-live="polite"></p></section>
+    </div>
+    <section class="card mt-18" aria-labelledby="txt-h"><div class="card-head"><div><h2 id="txt-h">Message text with evidence highlighted</h2><p class="card-sub">Displayed as plain text. HTML is never rendered.</p></div><label class="sr-only" for="seg-select">Message part</label><select id="seg-select" class="select w-auto"></select></div><div id="marked" class="marked" tabindex="0" aria-label="Message text with highlighted evidence"></div><div class="legend"><span><i class="l-pressure"></i>Pressure / threat</span><span><i class="l-sensitive"></i>Credentials / codes</span><span><i class="l-other"></i>Payment / impersonation</span><span><i class="l-flagged"></i>Negated or quoted (not weighted)</span><span><i class="l-ai"></i>AI-quoted</span></div></section>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div><strong>PhishExplain Shield</strong> (beta) · Intelligent Email Threat Analysis. Clear Evidence. Safer Decisions.<br>Manual, evidence-based analysis. Never a guarantee of safety. Product owner: Arun Kumar Gharami.</div>
+    <div class="footer-links"><a href="/security/settings/#privacy">Privacy</a><a href="/security/#limitations">Limitations</a><a href="/course/">CAP 6640 research</a><a href="https://github.com/Arungharami/PhishExplain-NLP" rel="noopener noreferrer" target="_blank">Source code</a></div>
+  </div>
+</footer>
+</body>
+</html>
