@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111e">
+<meta name="description" content="PhishExplain Shield: private, explainable email security checks for suspicious links, credential requests, urgent language, and mismatched sender details.">
+<meta property="og:title" content="PhishExplain Shield — Email Security, Explained">
+<meta property="og:description" content="Check suspicious email text privately with actionable, evidence-backed security guidance.">
+<title>PhishExplain Shield — Email Security Assistant</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/shield.css">
+<script type="module" src="/shield.js"></script>
+</head>
+<body>
+<div class="background-grid" aria-hidden="true"></div>
+<header class="shield-header" id="top">
+  <div class="wrap header-inner">
+    <a href="/security/" class="identity"><span class="identity-symbol" aria-hidden="true"><svg viewBox="0 0 34 34" fill="none"><path d="m17 3 12 5v8c0 7-5 12-12 15C10 28 5 23 5 16V8l12-5Z" stroke="currentColor" stroke-width="2"/><path d="m11.6 17.2 3.6 3.6 7.5-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>PhishExplain<span class="identity-accent"> Shield</span><small>EMAIL SECURITY ASSISTANT</small></span></a>
+    <nav class="header-nav" aria-label="Primary" id="header-links">
+      <a href="#scanner">Email scanner</a><a href="#findings">Findings</a><a href="#how-it-works">How it works</a><a href="/course/">Research & course</a><a href="https://github.com/Arungharami/PhishExplain-NLP" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </nav>
+    <div class="nav-right"><span class="privacy-pill"><span class="privacy-dot"></span>Local scanning</span><button class="mobile-menu" id="mobile-toggle" aria-expanded="false" aria-controls="header-links" aria-label="Toggle menu">☰</button></div>
+  </div>
+</header>
+<main>
+  <section class="wrap shield-hero">
+    <div class="hero-left">
+      <span class="intro-tag"><span class="intro-tag-spark">✳</span> INTRODUCING PHISHEXPLAIN SHIELD <span class="intro-beta">PUBLIC BETA</span></span>
+      <h1>Email security,<br><em>without the guesswork.</em></h1>
+      <p class="hero-lead">A smarter second look before you click. Find suspicious link patterns, social-engineering language, and sender inconsistencies—with clear explanations and safer next steps.</p>
+      <div class="hero-buttons"><a class="shield-btn primary" href="#scanner">Scan an email <span>↗</span></a><a class="shield-btn quiet" href="#how-it-works">Explore protections <span>→</span></a></div>
+      <div class="hero-proof"><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 20 6v6c0 5-3.2 8.1-8 10-4.8-1.9-8-5-8-10V6l8-4Z" stroke="currentColor" stroke-width="1.6"/><path d="m8 12 3 3 5-6" stroke="currentColor" stroke-width="1.6"/></svg> Browser-only analysis</span><span>◈ No account needed</span><span>⌁ Explainable checks</span></div>
+    </div>
+    <aside class="hero-preview" aria-label="Example security analysis">
+      <div class="preview-head"><div class="preview-title"><span class="preview-logo">◈</span><strong>EMAIL INSPECTION</strong></div><span class="preview-chip">SAMPLE REPORT</span></div>
+      <div class="preview-subject"><small>MESSAGE PREVIEW</small><strong>Urgent account verification</strong><span>From: notice@account-check.example</span></div>
+      <div class="preview-finding"><span class="preview-alert">!</span><div><strong>Link destination needs review</strong><small>HTTP · IP-based destination</small></div><span class="preview-arrow">↗</span></div>
+      <div class="preview-finding"><span class="preview-alert purple">⌁</span><div><strong>Credential request detected</strong><small>“enter your password”</small></div><span class="preview-arrow">↗</span></div>
+      <div class="preview-finding"><span class="preview-alert pink">↯</span><div><strong>Sender inconsistency</strong><small>Different From / Reply-To domains</small></div><span class="preview-arrow">↗</span></div>
+      <div class="preview-bottom"><span><i></i> Local-only demonstration</span><span>Examples are synthetic</span></div>
+    </aside>
+  </section>
+  <section class="wrap feature-ribbon" aria-label="Shield capabilities">
+    <div><span class="ribbon-icon">◉</span><div><strong>Link inspection</strong><small>Understand where URLs point</small></div></div>
+    <div><span class="ribbon-icon">◈</span><div><strong>Sender checks</strong><small>Spot identity inconsistencies</small></div></div>
+    <div><span class="ribbon-icon">⌁</span><div><strong>Language signals</strong><small>Surface urgent credential asks</small></div></div>
+    <div><span class="ribbon-icon">▤</span><div><strong>Explainable reports</strong><small>Export what was observed</small></div></div>
+  </section>
+  <section class="wrap scanner-section" id="scanner">
+    <div class="section-heading"><div><span class="section-marker">01 / EMAIL INSPECTOR</span><h2>Inspect before you interact.</h2><p>Paste a suspicious email or import its text. The checker runs entirely in your browser—no mailbox connection and no links opened.</p></div><span class="section-side-label"><span class="status-small"></span> SCANNER READY</span></div>
+    <div class="scanner-layout">
+      <div class="input-column"><div class="tool-panel">
+        <div class="tool-head"><div class="panel-head-title"><span class="panel-step">01</span><h3>Email to inspect</h3></div><span class="head-small">LOCAL INPUT</span></div>
+        <label class="form-label" for="email-input">PASTE EMAIL CONTENT</label>
+        <textarea id="email-input" class="email-input" spellcheck="false" maxlength="30000" placeholder="Paste the message body or full raw email headers and body here. Do not include real passwords or private information."></textarea>
+        <div class="input-meta"><span id="input-length">0 / 30,000 characters</span><button class="text-action" type="button" id="clear-email">Clear input</button></div>
+        <div class="form-label sample-label">TRY A SYNTHETIC EXAMPLE</div>
+        <div class="example-row"><button class="example-button chosen" type="button" data-sample="suspicious"><span class="sample-red"></span>Account alert</button><button class="example-button" type="button" data-sample="benign"><span class="sample-green"></span>Routine email</button><button class="example-button" type="button" data-sample="awareness"><span class="sample-purple"></span>Security training</button><button class="example-button" type="button" data-sample="html"><span class="sample-yellow"></span>Misleading link</button></div>
+        <div class="scan-actions"><button class="shield-btn primary scan-now" id="scan-button" type="button"><span>Analyze email</span><span>→</span></button><label class="shield-btn upload-btn" for="upload-email">Import .eml / .txt</label><input type="file" id="upload-email" accept=".eml,.txt,text/plain,message/rfc822" hidden></div>
+        <div class="privacy-note"><span>♙</span><p><strong>Private by default:</strong> this scanner does not upload, store, fetch, or open message links. Imported MIME attachments are not decoded or checked.</p></div>
+        <p id="scan-message" class="scan-message" aria-live="polite" role="status"></p>
+      </div></div>
+      <div class="output-column" id="findings"><div class="tool-panel">
+        <div class="tool-head"><div class="panel-head-title"><span class="panel-step">02</span><h3>Security review</h3></div><span class="head-small">EXPLAINABLE OUTPUT</span></div>
+        <div id="result-empty" class="result-empty"><div class="scan-ring"><span>◎</span></div><strong>Ready when you are.</strong><p>Run a scan to see a prioritized review, observed indicators, URL details, and next-step guidance.</p></div>
+        <div id="result-content" hidden>
+          <div class="risk-summary"><div><span class="risk-kicker">HEURISTIC ATTENTION INDEX</span><strong id="risk-number">—<small> / 100</small></strong><span id="risk-caption">Not scored</span></div><div class="risk-gauge"><svg viewBox="0 0 112 112" role="img" aria-label="Heuristic attention index"><circle class="gauge-track" cx="56" cy="56" r="44"/><circle id="gauge-progress" class="gauge-progress" cx="56" cy="56" r="44" stroke-dasharray="276.46" stroke-dashoffset="276.46"/><text id="gauge-text" x="56" y="63" text-anchor="middle">—</text></svg></div></div>
+          <p class="score-note">This number ranks rule matches for human attention. It is <strong>not</strong> the probability of phishing, verified risk, or proof an email is safe.</p>
+          <div class="mini-stats"><div><strong id="count-links">0</strong><small>Links</small></div><div><strong id="count-language">0</strong><small>Language cues</small></div><div><strong id="count-alerts">0</strong><small>Findings</small></div></div>
+          <div class="findings-head"><h4>What stood out</h4><span id="findings-total"></span></div>
+          <div id="finding-list" class="finding-list"></div>
+          <div class="report-buttons"><button type="button" class="shield-btn quiet report-export" id="download-report">Download JSON <span>↓</span></button><button type="button" class="shield-btn quiet report-export" id="print-report">Print report <span>↗</span></button></div>
+        </div>
+      </div></div>
+    </div>
+    <div class="details-grid" id="scan-details" hidden>
+      <article class="details-card"><div class="details-title"><span class="detail-icon">↗</span><div><h3>Link destinations</h3><p>Visible URLs and HTML href targets—never visited</p></div></div><div id="link-results" class="url-table"></div></article>
+      <article class="details-card"><div class="details-title"><span class="detail-icon purple">◎</span><div><h3>Sender & authentication</h3><p>Header consistency and unverified claims</p></div></div><div id="sender-results" class="sender-results"></div></article>
+    </div>
+    <div class="next-steps" id="next-steps" hidden><div class="next-steps-label">SAFER NEXT STEPS</div><div id="action-list" class="action-list"></div></div>
+  </section>
+  <section class="wrap capabilities" id="how-it-works"><div class="section-heading"><div><span class="section-marker">02 / BUILT FOR CLARITY</span><h2>Evidence, not empty confidence.</h2><p>Every observation has a specific reason. No mysterious “99% safe” badges and no assumptions about links we have not visited.</p></div></div>
+    <div class="cap-grid"><article class="cap-card"><div class="cap-glyph">↗</div><span>01 · LINK INTELLIGENCE</span><h3>Look at the destination</h3><p>Inspect URL hostnames, HTTP links, IP-address destinations, shortened links, encoded hostnames, and display-text mismatches without opening anything.</p><div class="cap-foot">Structural signals · No reputation lookup</div></article><article class="cap-card"><div class="cap-glyph blue">◈</div><span>02 · IDENTITY CLUES</span><h3>Question sender details</h3><p>Compare visible From and Reply-To domains and view any pasted SPF, DKIM, or DMARC claims—clearly marked as unverified.</p><div class="cap-foot">No SMTP or DNS authentication performed</div></article><article class="cap-card"><div class="cap-glyph purple">⌁</div><span>03 · SOCIAL ENGINEERING</span><h3>Expose pressure tactics</h3><p>Highlight urgent language and credential-request phrases. Quoted advice and legitimate messages may produce matches, so context still matters.</p><div class="cap-foot">Explainable lexical detection · No risk probability</div></article></div>
+  </section>
+  <section class="wrap trust-section"><div class="trust-panel"><div class="trust-left"><span class="section-marker">PRIVACY-FIRST BY DESIGN</span><h2>Keep sensitive decisions<br><em>in your hands.</em></h2><p>Manual message review runs locally. It does not integrate with your inbox, quarantine mail, scan attachments, look up live domain reputation, or verify authentication records. For a suspected attack, contact the organization using a known trusted channel.</p><div class="trust-actions"><a href="https://consumer.ftc.gov/consumer-alerts/2025/04/protect-yourself-phishing-scams" target="_blank" rel="noopener noreferrer">FTC phishing guidance ↗</a><a href="/lab/">See the NLP research lab ↗</a></div></div><div class="trust-icon" aria-hidden="true">♢</div></div></section>
+  <section class="wrap research-bridge"><div><span class="section-marker">RESEARCH-BACKED DEVELOPMENT</span><h2>From NLP experimentation to a usable security assistant.</h2><p>PhishExplain Shield shares a transparent extraction engine with the CAP 6640 research platform. The course comparison and human-reviewed benchmark remain a separate, independently evaluated study.</p></div><a class="shield-btn quiet" href="/course/">Research portal ↗</a></section>
+</main>
+<footer class="shield-footer"><div class="wrap footer-top"><div><a class="footer-brand" href="/security/">◈ PhishExplain <span>Shield</span></a><p>Explainable email safety checks for better decisions.</p></div><div class="footer-nav"><a href="#scanner">Scanner</a><a href="#how-it-works">Capabilities</a><a href="/course/">Academic research</a><a href="https://github.com/Arungharami/PhishExplain-NLP" rel="noopener noreferrer" target="_blank">Source code ↗</a></div></div><div class="wrap footer-meta"><span>© 2026 PhishExplain Shield · Browser-based email security assistant (beta)</span><span>Manual, heuristic analysis only · Never a guarantee of safety</span></div></footer>
+</body></html>
